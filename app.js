@@ -1,3 +1,4 @@
+// STRUTTURA
 // CREAZIONE STRUTTURA
 let side = '500px'
 let levelInp = document.querySelector('#level')
@@ -6,24 +7,21 @@ campo.style.maxWidth = '500px'
 let play = document.querySelector('.play')
 let replay = document.querySelector('.replay')
 // levels
-let easy = 49;
-let medium = 81;
-let hard = 100;
-// generazione e reset
+let levels = [49, 81, 100]
 play.addEventListener('click', selectLev)
 replay.addEventListener('click', cancel)
 // selezione livello e generazione
 function selectLev() {
     cancel();
     if (levelInp.value == 'firstLevel') {
-        generazione(easy);
+        generazione(levels[0]);
     } else if (levelInp.value == 'secondLevel') {
-        generazione(medium);
+        generazione(levels[1]);
     } else  if (levelInp.value == 'thirdLevel') {
-        generazione(hard);
+        generazione(levels[2]);
     } else {
         alert('Seleziona un livello')
-    } 
+    }
 }
 // reset
 function cancel () {
@@ -40,7 +38,7 @@ function generazione (level) {
         box.classList.add(`box-${i}`)
         box.style.border = '1px solid black'
         box.style.width = dim + '%'
-        box.innerHTML = i;    
+        box.innerHTML = i;
         campo.append(box)
     }
 };
